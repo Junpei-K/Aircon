@@ -1,0 +1,27 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+<title>LED Button</title>
+<style>
+button{
+  font-size:48px;
+  width:100%;
+  height:120px;
+}
+</style>
+</head>
+<body>
+<script>
+function sendOn(){
+  send("/on/");
+}
+function sendOff(){
+  send("/off/");
+}
+function send(url){
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", url, true);
+  xhr.send();
+}
+</script>
+<button id="on" onClick=sendOn()>LED ON</button>
+<button id="off" onClick=sendOff()>LED OFF</button>
+</body></html>
